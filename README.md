@@ -73,6 +73,7 @@
   "stop_sound_path": null, // Optional custom audio asset overrides
   "auto_copy_clipboard": true, // Automatically copy the final transcription to the clipboard
   "shift_paste": false, // Whether to force shift paste
+  "global_paste_shortcut": false, // Enable the compositor-level paste shortcut (Omarchy's addition)
   "paste_hints": {
     "shift": [
       // Optional list of Hyprland window classes that should always paste with Ctrl+Shift+V
@@ -138,6 +139,8 @@
 ```
 
 </details>
+
+- Shortcut listeners now recover after input device hotplug/disconnect; Omarchy's global paste shortcut stays usable even if keyboards/audio devices are unplugged/replugged.
 
 <details>
   <summary>
