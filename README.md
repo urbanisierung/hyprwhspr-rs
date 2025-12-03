@@ -7,8 +7,6 @@
 </div>
 <hr />
 
-> ⚠️ **Experimental:** This application is largely written with AI.
-
 https://github.com/user-attachments/assets/bbbaa1c3-1a7e-4165-ad3d-27b7465e201a
 
 ## Requirements
@@ -199,8 +197,8 @@ recompiling.
 
 - [ ] Slop review/clean up
 - [ ] Ship waybar integration (`hyprwhspr-rs --waybar`)
-- [ ] Release on Cargo
+- [x] Release on Cargo
 - [ ] Release on AUR
 - [ ] Add support for other operating systems/setups
-- [ ] Refine paste layer
+- [x] Refine paste layer
 - [ ] Investigate formatting model
