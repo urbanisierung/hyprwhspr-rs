@@ -1,5 +1,6 @@
 #!/bin/bash
-
+# OLD FILE BASED ON HYPRWHSPR (PYTHON)
+# TODO: REMOVE OR FIX THIS SHIT
 # hyprwhspr-rs System Tray Status Script
 # Shows hyprwhspr-rs status in the Hyprland system tray with JSON output
 
