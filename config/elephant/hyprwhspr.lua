@@ -15,36 +15,35 @@ Description = "Recent voice transcriptions"
 function GetEntries()
     local entries = {}
     local home = os.getenv("HOME")
-    local file_path = home .. "/.local/share/hyprwhspr/transcriptions.json"
+    local file_path = home .. "/.local/share/hyprwhspr-rs/transcriptions.json"
 
     local file = io.open(file_path, "r")
     if not file then
         return entries
     end
 
-    local content = file:read("*all")
-    file:close()
+    for line in file:lines() do
+        if line and line ~= "" then
+            local item = jsonDecode(line)
+            if item then
+                local display = item.text or ""
+                if #display > 60 then
+                    display = string.sub(display, 1, 57) .. "..."
+                end
 
-    local items = jsonDecode(content)
-    if not items then
-        return entries
-    end
-
-    for i, item in ipairs(items) do
-        local display = item.text or ""
-        if #display > 60 then
-            display = string.sub(display, 1, 57) .. "..."
+                table.insert(entries, {
+                    Text = display,
+                    Subtext = item.timestamp or "",
+                    Value = item.text or "",
+                    Icon = "edit-copy",
+                    Preview = item.text or "",
+                    PreviewType = "text",
+                })
+            end
         end
-
-        table.insert(entries, {
-            Text = display,
-            Subtext = item.timestamp or "",
-            Value = item.text or "",
-            Icon = "edit-copy",
-            Preview = item.text or "",
-            PreviewType = "text",
-        })
     end
+
+    file:close()
 
     return entries
 end
